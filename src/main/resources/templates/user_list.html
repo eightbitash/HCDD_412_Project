@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GameFlix - User Database Management System</title>
+
+    <!-- CDN Links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+<div class = "container my-2">
+    <a th:href= "@{/users/showNewUserForm}" class="btn btn-primary btn-lg mb-3"> Add New User </a>
+    <a th:href= "@{/games/game_list}" class="btn btn-primary btn-lg mb-3"> Catalog</a>
+    <br/>
+    <br/>
+    <h1>User Database </h1>
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>ID #</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email Address</th>
+            <th>Date Of Birth</th>
+            <th>Payment Method</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+        <tr th:each="user : ${listUsers}">
+            <td th:text="${user.userID}"></td>
+            <td th:text="${user.firstName}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.emailAddress}"></td>
+            <td th:text="${user.dateOfBirth}"></td>
+            <td th:text="${user.paymentMethod}"></td>
+            <td><a th:href="@{/users/showFormForUpdate/{id}(id=${user.userID})}" class="btn btn-primary">Update</a></td>
+            <td><a th:href="@{/users/deleteUser/{id}(id=${user.userID})}" class="btn btn-primary">Delete</a></td>
+        </tr>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

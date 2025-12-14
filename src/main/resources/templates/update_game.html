@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>GameFlix - Update Game Record</title>
+
+        <!-- CDN Links -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Catalog Management System</h1>
+
+            <hr>
+            <h2>Update Game Record</h2>
+
+            <br/>
+            <form action="#" th:action="@{/games/saveGame}" th:object="${game}" method="POST">
+
+                <input type="hidden" th:field="*{gameID}" />
+                <input type="text" th:field="*{title}" placeholder="Title of Game" class="form-control mb-4 col-4" required>
+                <input type="text" th:field="*{developer}" placeholder="Name of Developer" class="form-control mb-4 col-4" required>
+                <input type="text" th:field="*{publisher}" placeholder="Name of Publisher" class="form-control mb-4 col-4">
+                <input type="text" th:field="*{rating}" placeholder="ESRB Rating" class="form-control mb-4 col-4" required>
+                <input type="text" th:field="*{releaseDate}" placeholder="Release Date" class="form-control mb-4 col-4">
+                <input type="text" th:field="*{description}" placeholder="Description of Game" class="form-control mb-4 col-4" required>
+                <input type="text" th:field="*{genres}" placeholder="Genre(s) - separated with commas" class="form-control mb-4 col-4" required>
+
+                <div align="right"><button type="submit" class="btn btn-primary col-2"> Update Game</button></div>
+            </form>
+
+    <hr>
+
+    <a th:href ="@{/games/game_list}" class="btn btn-primary btn-md mb-3"> < Back to Game Catalog</a>
+</div>
+</body>
+</html>

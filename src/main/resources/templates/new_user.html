@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GameFlix - Add New User</title>
+
+    <!-- CDN Links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div class="container">
+
+    <h1>Add New User to Database </h1>
+    <br/>
+    <form action="#" th:action="@{/users/saveUser}" th:object="${user}" method="POST">
+
+        <input type="text" th:field="*{emailAddress}" placeholder="Email Address" class="form-control mb-4 col-4" required>
+        <input type="text" th:field="*{username}" placeholder="Username" class="form-control mb-4 col-4" required>
+        <input type="password" th:field="*{password}" placeholder="Password" class="form-control mb-4 col-4" required>
+        <input type="text" th:field="*{firstName}" placeholder="First Name" class="form-control mb-4 col-4" required>
+        <input type="text" th:field="*{lastName}" placeholder="Last Name" class="form-control mb-4 col-4" required>
+        <input type="text" th:field="*{gender}" placeholder="Gender" class="form-control mb-4 col-4" required>
+        <input type="text" th:field="*{dateOfBirth}" placeholder="Date of Birth" class="form-control mb-4 col-4" required>
+        <input type="text" th:field="*{guardianFirstName}" placeholder="Guardian's First Name" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{guardianLastName}" placeholder="Guardian's Last Name" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{guardianEmailAddress}" placeholder="Guardian's Email Address" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{postalCode}" placeholder="Postal Code" class="form-control mb-4 col-4" required>
+        <input type="text" th:field="*{paymentMethod}" placeholder="Payment Method" class="form-control mb-4 col-4" required>
+        <input type="text" th:field="*{accountRestrictions}" placeholder="Account Restriction(s) - separated with commas" class="form-control mb-4 col-4">
+
+        <button type="submit" class="btn btn-info col-2"> Save User</button>
+    </form>
+</div>
+</body>
+
+</html>
